@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>选择排序</title>
+</head>
+<body>
+	<script type="text/javascript">
+		function selectSort(arr){
+			var result = arr.slice(0);
+			for(var i=0; i<result.length-1; i++){
+				var min = i;
+				for(var j=i+1; j<result.length; j++){
+					if(result[min]>result[j]){
+						min = j;
+					}
+				}
+				if(min!=i){
+					var temp = result[i];
+					result[i] = result[min];
+					result[min] = temp;
+				}
+			}
+			return result;
+		}
+
+		var demoArr = [6,2,9,3,4,5,6,7,3,5,2,1,2,3];
+		console.log(selectSort(demoArr));
+	</script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<p>
+	小B的目的很简单:控制服务器的内存区域，试图在内存中装入从1到n之间的n个自然数，以覆盖内存区域。
+	可能是小B对编程理解上的问题，病毒似乎没有完全成功。可能是由于保护机制的原因，
+	内存写入只接受二进制的形式，所以十进制表达中除0和1之外的其他值都没有成功写入内存。
+	小B希望知道，究竟有多少数成功的写入了服务器的内存！
+	
+	输入中有多组测试数据。每组测试数据在单独的一行中，为整数n(1< =n < =10^9)。
+	对每组测试数据，在单独的行中输出问题的答案。
+	样例输入
+	10
+	20
+	样例输出
+	2
+	3
+</p>
+<script type="text/javascript">
+	var country = readInt();
+	var high = gets(10000).split(' ').map(function(x){
+		return parseInt(x)
+	})
+	var count = 0;
+
+	function minArr(arr){			//获取数组中的最小值
+		var max = arr.sort()[0];
+		return min;
+	}
+
+	for (var i = 0; i < high.length; i++) {
+		count += high[i];
+	}
+
+	var min = minArr(high);
+
+	var cost = count - min;
+
+	print(cost);
+
+
+
+	/*while(true){
+		var read = parseInt(prompt());
+		var count = 0;
+
+		function isMeet(num){
+			var arr = num.toString().split("");
+			for(var i=0; i<arr.length; i++){
+				if(arr[i]!="0" && arr[i]!="1"){
+					return false;
+				}
+			}
+			return true;
+		}
+
+		for(var i=1; i<=read; i++){
+			if(isMeet(i)){
+				count++;
+			}
+		}
+
+		console.log(count);
+	}*/
+
+	/*
+	var max;
+	while(max = readInt()){
+	  var i = 1;
+	  while(i.toString(2) <= max){
+	    i++;
+	  }
+	  print(i - 1);
+	}
+	 */
+
+
+</script>
+</body>
+</html>

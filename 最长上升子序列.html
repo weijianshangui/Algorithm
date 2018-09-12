@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>最长上升子序列</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function method1(arr){
+        var d = [];
+        var result = 0;
+
+        for(var i=0; i<arr.length; i++){
+          d[i] = 1;
+          for(var j=0; j<i; j++){
+            if(arr[j]<arr[i] && (d[j]+1) >= d[i]){
+              d[i] = d[j] + 1;
+            }
+          }
+          if(d[i] > result){
+            result = d[i];
+          }
+        }
+        return result;
+      }
+
+      var demoArr = [2,3,8,5,6,1];
+      console.log(method1(demoArr));
+    </script>
+  </body>
+</html>

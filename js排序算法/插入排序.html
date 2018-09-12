@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<script type="text/javascript">
+	//插入排序
+	function insertSort(array){
+		var result = array.slice(0);
+		var temp,j;
+
+		for(var i=1; i<array.length;i++){
+			temp = result[i];
+			j = i - 1;
+			while(j>=0 && temp < result[j]){
+				result[j+1] = result[j];
+				j--;
+			}
+			result[j+1] = temp;
+		}
+
+		return result;
+	}
+
+	var demoArr = [6,2,9,3,4,5,6,7,3,5,2,1,2,3];
+	console.log(insertSort(demoArr));
+</script>
+</body>
+
+</html>

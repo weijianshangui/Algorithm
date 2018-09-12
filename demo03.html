@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    var num = prompt().split('');
+    var result = "";
+    var temp = num.length - 1;
+
+    for(var i=num.length-1; i>=0; i--){
+      if(num[temp] != 0){
+          if(num[i] == "-"){
+              result = "-" + result;
+          }else{
+            result += num[i];
+          }
+      }else{
+          temp -= 1;
+      }
+    }
+    console.log(result);
+    </script>
+  </body>
+</html>

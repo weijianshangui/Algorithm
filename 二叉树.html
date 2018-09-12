@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>二叉树es6实现</title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      let binarySearchTree = (function(){
+        class Node{    //节点结构
+          constructor(key){
+            this.key = key;
+            this.left = null;
+            this.right = null;
+          }
+        }
+
+        class binarySearchTree{  //二叉树
+          constructor(){
+            this.root = null;
+          }
+
+          insert(key){    //插入一个节点
+            var newNode = new Node(key);
+
+            if(this.root === null){
+              this.root = newNode;
+            }else {
+              this.insertNode(this.root,newNode);
+            }
+          }
+
+          insertNode(node,newNode){
+            if(newNode.key < node.key){
+              if(node.left === null){
+                node.left = newNode;
+              }else{
+                this.insertNode(node.left,newNode);
+              }
+            }else{
+              if(node.right === null){
+                node.right = newNode;
+              }else{
+                this.insertNode(node.right,newNode);
+              }
+            }
+          }
+
+          getRoot(){//获取根节点
+            return this.root;
+          }
+
+          search(){//查找某个节点
+            return this.serarchNode(this.root,key);
+          }
+          serarchNode(node,key){
+            if(node === null){
+              return false;
+            }
+            if(key<node.key){
+              return this.serarchNode(node.left,key);
+            }else if(key>node.key){
+              return this.serarchNode(node.right,key);
+            }else{
+              return true;
+            }
+          }
+
+          inOrderTraverse(callback){//中序遍历
+            this.inOrderTraverseNode(this.root,callback);
+          }
+          inOrderTraverseNode(node,callback){
+            if(node!==null){
+              this.inOrderTraverseNode(node.left,callback);
+              callback(node.key);
+              this.inOrderTraverseNode(node.right,callback);
+            }
+          }
+
+          preOrderTranverse(callback){//先序遍历
+            this.preOrderTranverseNode(this.root,callback);
+          }
+          preOrderTranverseNode(node,callback){
+            if(node!==null){
+              callback(node.key);
+              this.preOrderTranverseNode(node.left,callback);
+              this.preOrderTranverseNode(node.right,callback);
+            }
+          }
+
+          postOrderTranverse(callback){//后序遍历
+            this.postOrderTranverseNode(this.root,callback);
+          }
+          postOrderTranverseNode(node,callback){
+            if(node!==null){
+              this.postOrderTranverseNode(node.left,callback);
+              this.postOrderTranverseNode(node.right,callback);
+              callback(node.key);
+            }
+          }
+
+          min(){//返回二叉树最小值
+            return this.minNode(this.root);
+          }
+          minNode(node){
+            if(node){
+              while (node && node.left !== null) {
+                node = node.left;
+              }
+              return node.key;
+            }
+            return null;
+          }
+
+          max(){//返回二叉树最大值
+            return this.maxNode(this.root);
+          }
+          maxNode(node){
+            if(node){
+              while (node && node.right !== nul) {
+                node = node.right;
+              }
+              return node.key;
+            }
+            return null;
+          }
+
+          remove(element){//从树中删除某个节点
+            this.root = this.removeNode(this.root,element);
+          }
+          findMinNode(node){
+            while(node && node.left !== null){
+              node = node.left;
+            }
+            return node;
+          }
+          removeNode(node,element){
+            if(node === null){
+              return null;
+            }
+            if(element<node.key){
+              node.left = this.removeNode(node.left,element);
+              return node;
+            }else if(element>node.key){
+              node.right = this.removeNode(node.right,element);
+              return node;
+            }else{
+              if(node.left === null && node.right === null){
+                node = null;
+                return node;
+              }else if(node.left === null){
+                node = node.right;
+                return node;
+              }else if(node.right === null){
+                node = node.left;
+                return node;
+              }
+
+              var aux = this.findMinNode(node.right);
+              node.key = aux.key;
+              node.right = this.removeNode(node.right,aux.key);
+              return node;
+            }
+          }
+        }
+        return binarySearchTree;
+      })();
+
+      var tree = new binarySearchTree();
+      tree.insert(5);
+      tree.insert(3);
+      tree.insert(7);
+      tree.insert(2);
+      tree.insert(4);
+      tree.insert(6);
+      tree.insert(8);
+
+      function callback(value){
+        console.log(value);
+      }
+      tree.inOrderTraverse(callback);
+    </script>
+  </body>
+</html>

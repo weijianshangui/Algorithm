@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    /*var num = parseInt(readline());
+
+    function isPrime(num) {
+        if(num == 2) {
+            return true
+        } else if(num % 2 == 0) {
+            return false
+        }
+        var temp = Math.sqrt(num)
+        for(var i = 3; i <= temp; i += 2) {
+            if(num % i === 0) {
+                return false
+            }
+        }
+        return true
+    }
+    console.log(isPrime(num));*/
+
+    /*var n = parseInt(prompt());
+    var str = "";
+    for(var i=0; i<n; i++){
+        var temp = prompt().slice(2);
+        if(i == (n-1)){
+            str += temp;
+        }else{
+            str += temp + " ";
+        }
+    }
+
+    var nums = str.split(' ').sort();
+    console.log(nums);
+    var result = "";
+    for(var i=0; i<nums.length; i++ ){
+        result += nums[i] + " ";
+    }
+    console.log(result);*/
+
+    var n = parseInt(prompt());
+    var nums = prompt().split(' ').map(function(x){
+      return parseInt(x);
+    });
+    var k = parseInt(prompt());
+    var sum = 0, pos = 0;
+
+    function find(n, k, nums, sum, pos)
+    {
+      if(sum==k){
+        return true
+      }
+      if(pos>n){
+        return false;
+      }
+      if(find(n,k,nums,sum+nums[pos],pos+1)){
+        return true;
+      }
+      if(find(n,k,nums,sum,pos+1)){
+        return true;
+      }
+      return false;
+    }
+    console.log(find(n,k,nums,sum,pos));
+    </script>
+  </body>
+</html>
