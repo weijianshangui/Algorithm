@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      function sort(arr){
+        var low = 0,height = arr.length - 1;
+        while (low<height) {
+          if(arr[low] != 0){
+            low++;
+          }else if(arr[height] != 0){
+            var temp = arr[low];
+            arr[low] =arr[height];
+            arr[height] = temp;
+            low++;
+            height--;
+          }else{
+            height--;
+          }
+        }
+        return arr;
+      }
+
+      var demo = [1,5,0,0,2,19,0];
+      var demo2 = [1,5,0,5,6,45,1,0,2,19,0];
+      var demo3 = [1,5,0,9,21,41,1,2,4,51,0,12,0,0,2,19,0];
+      console.log(sort(demo));
+      console.log(sort(demo2));
+      console.log(sort(demo3));
+    </script>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+      //第一行N M P
+      var npm = prompt().split(" ").map(function(x){
+        return parseInt(x);
+      });
+
+      //第二行N个数Ai
+      var foots = prompt().split(" ").map(function(x){
+        return parseInt(x);
+      });
+      var tag = npm[1];
+
+      //接下来M行，每行A i或者B i分别表示买一份食物i，吃一份食物i
+      while(tag>0){
+        tag--;
+        var deal = prompt().split(" ");
+        if(deal[0] == "A"){
+          foots[(deal[1] - 1)]++;
+        }else{
+          foots[(deal[1] - 1)]--;
+        }
+      }
+
+      var tempfoot = foots[(npm[2]-1)];
+
+      function rep(arr) {
+        for (var i = 0; i < arr.length; i++) {
+            if (arr.indexOf(arr[i]) != i) {
+                arr.splice(i,1);
+                i--;
+            }
+        }
+        return arr;
+      }
+
+      var endfoots = rep(foots).sort().reverse();
+
+      for(var i=0; i<endfoots.length; i++){
+        if(tempfoot == endfoots[i]){
+          console.log(i+1);
+          break;
+        }
+      }
+    </script>
+  </body>
+</html>
