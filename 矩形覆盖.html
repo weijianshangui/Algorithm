@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    /*我们可以用2*1的小矩形横着或者竖着去覆盖更大的矩形。
+    请问用n个2*1的小矩形无重叠地覆盖一个2*n的大矩形，总共有多少种方法？*/
+
+    //将n=1，2，3，4。。列出后可知为斐波那契数列
+    function rectCover(number){
+      var dp = [1,2];
+      if(number == 0){
+          return 0;
+      }else if(number == 1){
+          return dp[0];
+      }else if(number == 2){
+          return dp[1];
+      }else{
+          for(var i=2; i<number; i++){
+              dp[i] = dp[i-1] + dp[i-2];
+          }
+      }
+      return dp[(number-1)];
+    }
+    </script>
+  </body>
+</html>
