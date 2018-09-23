@@ -6,7 +6,20 @@
   </head>
   <body>
     <script type="text/javascript">
-      
+    function reOrderArray(array){
+        var result = [], result2 = [];
+        for(var i=0; i<array.length; i++){
+            if(array[i]%2 != 0){
+                result.push(array[i])
+            }else{
+                result2.push(array[i]);
+            }
+        }
+        return result.concat(result2);
+    }
+
+    var demo = [1,2,34,8,7,32,1];
+    console.log(reOrderArray(demo));
     </script>
   </body>
 </html>

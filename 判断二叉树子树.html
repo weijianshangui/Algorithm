@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    //输入两棵二叉树A，B，判断B是不是A的子结构。（ps：我们约定空树不是任意一个树的子结构）
+    
+    /* function TreeNode(x) {
+      this.val = x;
+      this.left = null;
+      this.right = null;
+    } */
+    function HasSubtree(pRoot1, pRoot2){
+      if(!pRoot1 || !pRoot2){
+          return false;
+      }else{
+          return isSubtree(pRoot1, pRoot2) || HasSubtree(pRoot1.left, pRoot2) || HasSubtree(pRoot1.right, pRoot2);
+      }
+    }
+
+    function isSubtree(root1, root2){
+      if(!root2){
+          return true;
+      }else if(!root1){
+          return false;
+      }
+      if(root1.val == root2.val){
+          return isSubtree(root1.left, root2.left) && isSubtree(root1.right, root2.right);
+      }else{
+          return false;
+      }
+    }
+    </script>
+  </body>
+</html>

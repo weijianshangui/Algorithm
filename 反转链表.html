@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    //method1
+    function ReverseList(pHead){
+      var arr = [];
+      var node = pHead;
+      while(node){
+          arr.push(node.val);
+          node = node.next;
+      }
+      node = pHead;
+      while(node){
+          node.val = arr.pop();
+          node = node.next;
+      }
+      return pHead;
+    }
+    //method2
+    function ReverseList(pHead){
+        var phead=pHead;
+        if(phead==null||phead.next==null) return phead;
+        var prev=null;
+        var next=null;
+        while(phead!=null){
+            next=phead.next;
+            phead.next=prev;
+            prev=phead;
+            phead=next;
+        }
+        return prev;
+    }
+    </script>
+  </body>
+</html>

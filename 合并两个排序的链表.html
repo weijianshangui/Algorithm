@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <script type="text/javascript">
+    /*function ListNode(x){
+        this.val = x;
+        this.next = null;
+      }*/
+      function Merge(pHead1, pHead2){
+        let list = {};
+        if(pHead1 === null){
+            return pHead2;
+        }else if(pHead2 === null){
+            return pHead1;
+        }
+        if(pHead1.val > pHead2.val){
+            list = pHead2;
+            list.next = Merge(pHead1,pHead2.next);
+        }else{
+            list = pHead1;
+            list.next = Merge(pHead1.next,pHead2);
+        }
+        return list;
+      }
+    </script>
+  </body>
+</html>
