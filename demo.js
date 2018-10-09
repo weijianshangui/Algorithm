@@ -1,10 +1,10 @@
 var readline = require('readline');
 
-var str = readline().split(' ');
+var str = prompt().split(' ');
 var a = parseInt(str[0]);
 var b = parseInt(str[1]);
 var c = parseInt(str[2]);
-var maxResult = 0; 
+var maxResult = 0;
 
 
 function maxNumber(a,b,c){
